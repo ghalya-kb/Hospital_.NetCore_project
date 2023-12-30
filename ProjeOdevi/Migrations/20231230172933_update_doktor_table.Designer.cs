@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjeOdevi.Models;
 
@@ -11,9 +12,10 @@ using ProjeOdevi.Models;
 namespace ProjeOdevi.Migrations
 {
     [DbContext(typeof(HastaneContext))]
-    partial class HastaneContextModelSnapshot : ModelSnapshot
+    [Migration("20231230172933_update_doktor_table")]
+    partial class update_doktor_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,8 +85,7 @@ namespace ProjeOdevi.Migrations
                     b.Property<int>("DoktorId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("HastaId")
-                        .IsRequired()
+                    b.Property<int>("HastaId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Tarih")

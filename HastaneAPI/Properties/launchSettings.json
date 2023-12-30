@@ -4,17 +4,17 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:62977",
-      "sslPort": 44370
+      "applicationUrl": "http://localhost:51959",
+      "sslPort": 44362
     }
   },
   "profiles": {
-    "HastaneAPI": {
+    "HastaneApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7184;http://localhost:5079",
+      "applicationUrl": "https://localhost:7015;http://localhost:5063",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

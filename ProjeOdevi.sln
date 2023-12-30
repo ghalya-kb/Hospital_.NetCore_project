@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjeOdevi", "ProjeOdevi\ProjeOdevi.csproj", "{E7A2D452-4301-46F6-B442-06F2B1F07FC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjeOdevi", "ProjeOdevi\ProjeOdevi.csproj", "{E7A2D452-4301-46F6-B442-06F2B1F07FC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HastaneAPI", "HastaneAPI\HastaneAPI.csproj", "{E09ED77B-7679-489B-B6CD-F4D6AB451BA5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HastaneApi", "HastaneApi\HastaneApi.csproj", "{32359219-E389-4C52-BC7F-D30094BF02E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{E7A2D452-4301-46F6-B442-06F2B1F07FC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7A2D452-4301-46F6-B442-06F2B1F07FC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7A2D452-4301-46F6-B442-06F2B1F07FC7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E09ED77B-7679-489B-B6CD-F4D6AB451BA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E09ED77B-7679-489B-B6CD-F4D6AB451BA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E09ED77B-7679-489B-B6CD-F4D6AB451BA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E09ED77B-7679-489B-B6CD-F4D6AB451BA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32359219-E389-4C52-BC7F-D30094BF02E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32359219-E389-4C52-BC7F-D30094BF02E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32359219-E389-4C52-BC7F-D30094BF02E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32359219-E389-4C52-BC7F-D30094BF02E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

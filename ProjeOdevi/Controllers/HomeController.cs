@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using ProjeOdevi.Models;
 using System.Diagnostics;
 
@@ -13,8 +14,15 @@ namespace ProjeOdevi.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task <IActionResult> Index()
         {
+            HastaneContext hastaneContext = new HastaneContext();
+            List<Doktor> doktorlar = new List<Doktor>();
+            HttpClient client = new HttpClient();
+
+            var response = await client.GetAsync("https://localhost:7015/api/doktor/doktorlar");
+            var jsonResponse = await response.Content.ReadAsStringAsync();
+            doktorlar = JsonConvert.DeserializeObject<List<Doktor>>(jsonResponse);
             return View();
         }
 
