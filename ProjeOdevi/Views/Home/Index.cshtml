@@ -1,8 +1,23 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    List<Birim> birimler = (List<Birim>)ViewData["Birimler"];
+    List<Doktor> doktorlar = (List<Doktor>)ViewData["Doktorlar"];
 }
+@if(birimler != null)
+{
+    <div class="col-md-6 col-sm-6">
+        <label for="select">Select Department</label>
+        <select id="birimSelect" class="form-control" onchange="loadDoctors()">
+            @foreach(var birim in birimler)
+            {
+                <option value = "@birim.Id">@birim.Ad</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <label for="select">Select Doctor</label>
+        <select id="doktorSelect" class="form-control">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        </select>
+    </div>
+}

@@ -20,13 +20,16 @@ namespace ProjeOdevi.Controllers
 
         public async Task <IActionResult> Index()
         {
-            //HastaneContext hastaneContext = new HastaneContext();
-            //List<Doktor> doktorlar = new List<Doktor>();
-            //HttpClient client = new HttpClient();
+            HastaneContext hastaneContext = new HastaneContext();
+            List<Birim> birimler = new List<Birim>();
+            List<Doktor> doktorlar = new List<Doktor>();
+            HttpClient client = new HttpClient();
 
-            //var response = await client.GetAsync("https://localhost:7090/api/doktor/doktorlar");
-            //var jsonResponse = await response.Content.ReadAsStringAsync();
-            //doktorlar = JsonConvert.DeserializeObject<List<Doktor>>(jsonResponse);
+            var response = await client.GetAsync("https://localhost:7090/api/birim/birimler");
+            var jsonResponse = await response.Content.ReadAsStringAsync();
+            birimler = JsonConvert.DeserializeObject<List<Birim>>(jsonResponse);
+
+            ViewData["Birimler"] = birimler;
             return View();
         }
 
