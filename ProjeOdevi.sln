@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjeOdevi", "ProjeOdevi\ProjeOdevi.csproj", "{E7A2D452-4301-46F6-B442-06F2B1F07FC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HastaneApi", "HastaneApi\HastaneApi.csproj", "{32359219-E389-4C52-BC7F-D30094BF02E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HastaneApi", "HastaneApi\HastaneApi.csproj", "{32359219-E389-4C52-BC7F-D30094BF02E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
