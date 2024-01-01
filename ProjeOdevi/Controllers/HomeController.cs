@@ -23,6 +23,15 @@ namespace ProjeOdevi.Controllers
         public async Task <IActionResult> Index()
         {
             HastaneContext hastaneContext = new HastaneContext();
+            hastaneContext.Adminler.Add(new Admin()
+            {
+                Adi = "Admin1",
+                Soyadi = "",
+                KullaniciAdi = "b201210571@sakarya.edu.tr",
+                Sifre = "sau",
+                TCNo = "1234567890",
+            });
+            hastaneContext.SaveChanges();
             List<Birim> birimler = new List<Birim>();
             List<Doktor> doktorlar = new List<Doktor>();
             HttpClient client = new HttpClient();

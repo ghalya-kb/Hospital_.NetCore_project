@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using ProjeOdevi.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace ProjeOdevi.Controllers
 {
@@ -31,13 +32,14 @@ namespace ProjeOdevi.Controllers
                     new Claim(ClaimTypes.NameIdentifier, modelLogin.KullaniciAdi),
                     new Claim(ClaimTypes.Name, kul.Id.ToString())
                 };
+                string userType = "";
                 if (kul is Hasta)
                     claims.Add(new Claim("Type", "Hasta"));
                 else if (kul is Admin)
                     claims.Add(new Claim("Type", "Admin"));
                 else
                     claims.Add(new Claim("Type", "Doktor"));
-
+                userType = claims.Last().Value.ToString();
                 ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims,
                     CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -52,7 +54,14 @@ namespace ProjeOdevi.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity), properties);
 
-                return RedirectToAction("Index", "Home");
+                if (userType == "Admin")
+                {
+                    return RedirectToAction("AdminPanel", "Admin"); // Adjust the action and controller names accordingly
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
 
 
