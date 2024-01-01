@@ -28,8 +28,8 @@ namespace ProjeOdevi.Controllers
             if (kul != null)
             {
                 List<Claim> claims = new List<Claim>() {
-                    new Claim(ClaimTypes.NameIdentifier, modelLogin.KullaniciAdi)
-
+                    new Claim(ClaimTypes.NameIdentifier, modelLogin.KullaniciAdi),
+                    new Claim(ClaimTypes.Name, kul.Id.ToString())
                 };
                 if (kul is Hasta)
                     claims.Add(new Claim("Type", "Hasta"));
@@ -47,6 +47,7 @@ namespace ProjeOdevi.Controllers
                     AllowRefresh = true,
                     IsPersistent = true
                 };
+                properties.Items["UserId"] = kul.Id.ToString();
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
                     new ClaimsPrincipal(claimsIdentity), properties);

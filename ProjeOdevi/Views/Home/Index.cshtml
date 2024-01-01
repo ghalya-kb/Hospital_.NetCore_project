@@ -2,22 +2,107 @@
     ViewData["Title"] = "Home Page";
     List<Birim> birimler = (List<Birim>)ViewData["Birimler"];
     List<Doktor> doktorlar = (List<Doktor>)ViewData["Doktorlar"];
+    List<string> gunler = new List<string>()
+    {
+        "Pazartesi",
+        "Salı",
+        "Çarşamba",
+        "Perşembe",
+        "Cuma",
+    };
+    
+    string GunIngilizge(string gun)
+    {
+        switch (gun)
+        {
+            case "Pazartesi":
+                return "Monday";
+                break;
+            case "Salı":
+                return "Tuesday";
+                break;
+            case "Çarşamba":
+                return "Wednesday";
+                break;
+            case "Perşembe":
+                return "Thursday";
+                break;
+            case "Cuma":
+                return "Friday";
+                break;
+            default:
+                return "";
+        }
+    }
+}
+@model RandevuAlModeli;
+@if (TempData["RandevuAlindi"] != null)
+{
+    <script>
+        window.onload = function () {
+            alert("@TempData["RandevuAlindi"]");
+        };
+    </script>
 }
 @if(birimler != null)
 {
-    <div class="col-md-6 col-sm-6">
-        <label for="select">Select Department</label>
-        <select id="birimSelect" class="form-control" onchange="loadDoctors()">
-            @foreach(var birim in birimler)
-            {
-                <option value = "@birim.Id">@birim.Ad</option>
-            }
-        </select>
-    </div>
-    <div class="col-md-6 col-sm-6">
-        <label for="select">Select Doctor</label>
-        <select id="doktorSelect" class="form-control">
+    <section id="appointment" data-stellar-background-ratio="3">
+        <div class="container">
+            <div class="row">
 
-        </select>
-    </div>
+                <div class="col-md-6 col-sm-6">
+                    <img src="~/images/appointment-image.jpg" class="img-responsive" alt="">
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                    <!-- CONTACT FORM HERE -->
+                    <form id="appointment-form" role="form" asp-action="RandevuAl" method="post">
+                        <!-- SECTION TITLE -->
+                        <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
+                            <h2>Make an appointment</h2>
+                        </div>
+
+                        <div class="wow fadeInUp" data-wow-delay="0.8s">
+                            <div class="col-md-6 col-sm-6">
+                                <label for="select">Birim Seç</label>
+                                <select id="birimSelect" class="form-control" onchange="loadDoctors()">
+                                    @foreach (var birim in birimler)
+                                    {
+                                        <option value="@birim.Id">@birim.Ad</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label for="select">Doktor Seç</label>
+                                <select id="doktorSelect" class="form-control" asp-for="@Model.DoktorId">
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label for="select">Gün Seç</label>
+                                <select id="gunSelect" class="form-control" onchange="loadSaatler()" asp-for="@Model.Gun">
+                                    @foreach (var gun in gunler)
+                                    {
+                                        <option value="@GunIngilizge(gun)">@gun</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label for="select">Saat Seç</label>
+                                <select id="saatSelect" class="form-control" asp-for="@Model.Saat">
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12">
+                                <button type="submit" class="form-control" id="cf-submit" name="submit">Randevu Al</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
 }

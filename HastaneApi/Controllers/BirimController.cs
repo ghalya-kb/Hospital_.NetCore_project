@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjeOdevi.Models;
+using System.Globalization;
+using System;
 
 namespace HastaneApi.Controllers
 {
